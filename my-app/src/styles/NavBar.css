@@ -1,0 +1,26 @@
+.navBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navBar-path {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.navBar-path > a {
+    display: flex;
+    color: black;
+    text-decoration: inherit;
+    height: 100%;
+    padding: 0 10px;
+    align-items: center;
+    
+}
+
+.navBar-path_current {
+    background-color: lightgrey;
+    border: solid black 1px;
+}

@@ -1,15 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import '../../styles/NavBar.css'
 
 function NavBar() {
+  let location = useLocation();
+
+  console.log(location)
 
   return (
-    <nav className="main-nav">
-      <NavLink className="main-nav-path" to="/">
-        Create
-      </NavLink>
-      <NavLink className="main-nav-path" to="/list">
-        List
-      </NavLink>
+    <nav className="navBar">
+      <h1>HRnet</h1>
+      <div className="navBar-path">
+        <NavLink to="/" className={location.pathname === '/' ? "navBar-path_current" : null}>
+          Create
+        </NavLink>
+        <NavLink to="/list" className={location.pathname === '/list' ? "navBar-path_current" : null}>
+          List
+        </NavLink>
+      </div>
     </nav>
   );
 }

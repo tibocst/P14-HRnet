@@ -1,9 +1,9 @@
 import { useState } from "react";
 import DataTable from "react-data-table-component";
+import '../../styles/List.css'
 
 function List() {
-  const [input, setInput] = useState("")
-
+  const [input, setInput] = useState("");
 
   const columns = [
     {
@@ -82,7 +82,17 @@ function List() {
 
   return (
     <div className="list">
-      <div className="table-search"><input id="search" type="text" placeholder="Filter By Name" aria-label="Search Input" value={input} onInput={(e) => setInput(e.target.value)}/></div>
+      <div className="table-search">
+        <p>Search :</p>
+        <input
+          id="search"
+          type="text"
+          placeholder="Filter By Name"
+          aria-label="Search Input"
+          value={input}
+          onInput={(e) => setInput(e.target.value)}
+        />
+      </div>
       <DataTable
         pagination
         columns={columns}

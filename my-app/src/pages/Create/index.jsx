@@ -3,10 +3,11 @@ import Select from "react-select";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
+import '../../styles/Create.css'
 
 function Create() {
-  const [startDate, setStartDate] = useState(new Date());
-  const [birthDate, setBirthDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(null);
+  const [birthDate, setBirthDate] = useState(null);
 
 
   const handleSubmitCreate = () => {};
