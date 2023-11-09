@@ -1,272 +1,277 @@
 import InputForm from "../../components/InputForm";
-import Select from 'react-select'
+import Select from "react-select";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { useState } from "react";
 
 function Create() {
-  const handleSubmitCreate = () => {};
+  const [startDate, setStartDate] = useState(new Date());
+  const [birthDate, setBirthDate] = useState(new Date());
 
-  
+
+  const handleSubmitCreate = () => {};
 
   const states = [
     {
-        value: "alabama",
-        label: "Alabama"
+      value: "alabama",
+      label: "Alabama",
     },
     {
-        value: "alaska",
-        label: "Alaska"
+      value: "alaska",
+      label: "Alaska",
     },
     {
-        value: "american samoa",
-        label: "American Samoa"
+      value: "american samoa",
+      label: "American Samoa",
     },
     {
-        value: "arizona",
-        label: "Arizona"
+      value: "arizona",
+      label: "Arizona",
     },
     {
-        value: "arkansas",
-        label: "Arkansas"
+      value: "arkansas",
+      label: "Arkansas",
     },
     {
-        value: "california",
-        label: "California"
+      value: "california",
+      label: "California",
     },
     {
-        value: "colorado",
-        label: "Colorado"
+      value: "colorado",
+      label: "Colorado",
     },
     {
-        value: "connecticut",
-        label: "Connecticut"
+      value: "connecticut",
+      label: "Connecticut",
     },
     {
-        value: "delaware",
-        label: "Delaware"
+      value: "delaware",
+      label: "Delaware",
     },
     {
-        value: "district of columbia",
-        label: "District Of Columbia"
+      value: "district of columbia",
+      label: "District Of Columbia",
     },
     {
-        value: "federated states of micronesia",
-        label: "Federated States Of Micronesia"
+      value: "federated states of micronesia",
+      label: "Federated States Of Micronesia",
     },
     {
-        value: "florida",
-        label: "Florida"
+      value: "florida",
+      label: "Florida",
     },
     {
-        value: "georgia",
-        label: "Georgia"
+      value: "georgia",
+      label: "Georgia",
     },
     {
-        value: "guam",
-        label: "Guam"
+      value: "guam",
+      label: "Guam",
     },
     {
-        value: "hawaii",
-        label: "Hawaii"
+      value: "hawaii",
+      label: "Hawaii",
     },
     {
-        value: "idaho",
-        label: "Idaho"
+      value: "idaho",
+      label: "Idaho",
     },
     {
-        value: "illinois",
-        label: "Illinois"
+      value: "illinois",
+      label: "Illinois",
     },
     {
-        value: "indiana",
-        label: "Indiana"
+      value: "indiana",
+      label: "Indiana",
     },
     {
-        value: "iowa",
-        label: "Iowa"
+      value: "iowa",
+      label: "Iowa",
     },
     {
-        value: "kansas",
-        label: "Kansas"
+      value: "kansas",
+      label: "Kansas",
     },
     {
-        value: "kentucky",
-        label: "Kentucky"
+      value: "kentucky",
+      label: "Kentucky",
     },
     {
-        value: "louisiana",
-        label: "Louisiana"
+      value: "louisiana",
+      label: "Louisiana",
     },
     {
-        value: "maine",
-        label: "Maine"
+      value: "maine",
+      label: "Maine",
     },
     {
-        value: "marshall islands",
-        label: "Marshall Islands"
+      value: "marshall islands",
+      label: "Marshall Islands",
     },
     {
-        value: "maryland",
-        label: "Maryland"
+      value: "maryland",
+      label: "Maryland",
     },
     {
-        value: "massachusetts",
-        label: "Massachusetts"
+      value: "massachusetts",
+      label: "Massachusetts",
     },
     {
-        value: "michigan",
-        label: "Michigan"
+      value: "michigan",
+      label: "Michigan",
     },
     {
-        value: "minnesota",
-        label: "Minnesota"
+      value: "minnesota",
+      label: "Minnesota",
     },
     {
-        value: "mississippi",
-        label: "Mississippi"
+      value: "mississippi",
+      label: "Mississippi",
     },
     {
-        value: "missouri",
-        label: "Missouri"
+      value: "missouri",
+      label: "Missouri",
     },
     {
-        value: "montana",
-        label: "Montana"
+      value: "montana",
+      label: "Montana",
     },
     {
-        value: "nebraska",
-        label: "Nebraska"
+      value: "nebraska",
+      label: "Nebraska",
     },
     {
-        value: "nevada",
-        label: "Nevada"
+      value: "nevada",
+      label: "Nevada",
     },
     {
-        value: "new hampshire",
-        label: "New Hampshire"
+      value: "new hampshire",
+      label: "New Hampshire",
     },
     {
-        value: "new jersey",
-        label: "New Jersey"
+      value: "new jersey",
+      label: "New Jersey",
     },
     {
-        value: "new mexico",
-        label: "New Mexico"
+      value: "new mexico",
+      label: "New Mexico",
     },
     {
-        value: "new york",
-        label: "New York"
+      value: "new york",
+      label: "New York",
     },
     {
-        value: "north carolina",
-        label: "North Carolina"
+      value: "north carolina",
+      label: "North Carolina",
     },
     {
-        value: "north dakota",
-        label: "North Dakota"
+      value: "north dakota",
+      label: "North Dakota",
     },
     {
-        value: "northern mariana islands",
-        label: "Northern Mariana Islands"
+      value: "northern mariana islands",
+      label: "Northern Mariana Islands",
     },
     {
-        value: "ohio",
-        label: "Ohio"
+      value: "ohio",
+      label: "Ohio",
     },
     {
-        value: "oklahoma",
-        label: "Oklahoma"
+      value: "oklahoma",
+      label: "Oklahoma",
     },
     {
-        value: "oregon",
-        label: "Oregon"
+      value: "oregon",
+      label: "Oregon",
     },
     {
-        value: "palau",
-        label: "Palau"
+      value: "palau",
+      label: "Palau",
     },
     {
-        value: "pennsylvania",
-        label: "Pennsylvania"
+      value: "pennsylvania",
+      label: "Pennsylvania",
     },
     {
-        value: "puerto rico",
-        label: "Puerto Rico"
+      value: "puerto rico",
+      label: "Puerto Rico",
     },
     {
-        value: "rhode island",
-        label: "Rhode Island"
+      value: "rhode island",
+      label: "Rhode Island",
     },
     {
-        value: "south carolina",
-        label: "South Carolina"
+      value: "south carolina",
+      label: "South Carolina",
     },
     {
-        value: "south dakota",
-        label: "South Dakota"
+      value: "south dakota",
+      label: "South Dakota",
     },
     {
-        value: "tennessee",
-        label: "Tennessee"
+      value: "tennessee",
+      label: "Tennessee",
     },
     {
-        value: "texas",
-        label: "Texas"
+      value: "texas",
+      label: "Texas",
     },
     {
-        value: "utah",
-        label: "Utah"
+      value: "utah",
+      label: "Utah",
     },
     {
-        value: "vermont",
-        label: "Vermont"
+      value: "vermont",
+      label: "Vermont",
     },
     {
-        value: "virgin islands",
-        label: "Virgin Islands"
+      value: "virgin islands",
+      label: "Virgin Islands",
     },
     {
-        value: "virginia",
-        label: "Virginia"
+      value: "virginia",
+      label: "Virginia",
     },
     {
-        value: "washington",
-        label: "Washington"
+      value: "washington",
+      label: "Washington",
     },
     {
-        value: "west virginia",
-        label: "West Virginia"
+      value: "west virginia",
+      label: "West Virginia",
     },
     {
-        value: "wisconsin",
-        label: "Wisconsin"
+      value: "wisconsin",
+      label: "Wisconsin",
     },
     {
-        value: "wyoming",
-        label: "Wyoming"
-    }
-];
+      value: "wyoming",
+      label: "Wyoming",
+    },
+  ];
 
-const departments = [
-  {
-    value: "sales",
-    label: "Sales"
-  },
-  {
-    value: "marketing",
-    label: "Marketing"
-  },
-  {
-    value: "engineering",
-    label: "Engineering"
-  },
-  {
-    value: "human ressources",
-    label: "Human Ressources"
-  },
-  {
-    value: "legal",
-    label: "Legal"
-  },
-];
+  const departments = [
+    {
+      value: "sales",
+      label: "Sales",
+    },
+    {
+      value: "marketing",
+      label: "Marketing",
+    },
+    {
+      value: "engineering",
+      label: "Engineering",
+    },
+    {
+      value: "human ressources",
+      label: "Human Ressources",
+    },
+    {
+      value: "legal",
+      label: "Legal",
+    },
+  ];
 
   return (
     <div className="create">
@@ -288,14 +293,15 @@ const departments = [
           required={true}
           errorDescription="Please enter valid lastname (no number)"
         />
-        <InputForm
-          description="Date of Birth"
-          type="text"
-          name="date"
-          id="date"
-          required={true}
-          errorDescription="Please enter valid Date of Birth"
-        />
+        <div>
+          <p>Date of Birth</p>
+          <DatePicker selected={birthDate} onChange={(date) => setBirthDate(date)} />
+        </div>
+        <div>
+          <p>Start Date</p>
+          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+        </div>
+        
         <fieldset className="address">
           <legend>Address</legend>
           <InputForm
@@ -318,7 +324,7 @@ const departments = [
             <p>State</p>
             <Select options={states} />
           </div>
-          
+
           <InputForm
             description="Zip Code"
             type="number"
@@ -329,9 +335,9 @@ const departments = [
           />
         </fieldset>
         <div className="form-select">
-            <p>Department</p>
-            <Select options={departments} />
-          </div>
+          <p>Department</p>
+          <Select options={departments} />
+        </div>
 
         <button type="submit" className="save-button">
           Save
