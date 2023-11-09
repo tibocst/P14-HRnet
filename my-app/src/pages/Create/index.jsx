@@ -4,13 +4,30 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import '../../styles/Create.css'
+import { useDispatch, useSelector } from "react-redux";
+import { createEmployee, getListEmployeeList } from "../../features/list";
 
 function Create() {
   const [startDate, setStartDate] = useState(null);
   const [birthDate, setBirthDate] = useState(null);
+  const [selectState, setSelectState] = useState(null);
+  const [selectDepartment, setSelectDepartment] = useState(null);
+  const listEmployeeList = useSelector(getListEmployeeList)
+  const dispatch = useDispatch()
 
-
-  const handleSubmitCreate = () => {};
+  const handleSubmitCreate = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const formJson = Object.fromEntries(formData.entries());
+    var options = {year: "numeric", month: "numeric", day: "numeric"};
+    formJson.startDate = startDate.toLocaleDateString("en-US", options)
+    formJson.birthDate = birthDate.toLocaleDateString("en-US", options)
+    formJson.state = selectState
+    formJson.department = selectDepartment
+    formJson.id = listEmployeeList.length
+    dispatch(createEmployee(formJson))
+  };
 
   const states = [
     {
@@ -281,16 +298,16 @@ function Create() {
         <InputForm
           description="FirstName"
           type="text"
-          name="firstname"
-          id="firstname"
+          name="firstName"
+          id="firstName"
           required={true}
           errorDescription="Please enter valid firstname (no number)"
         />
         <InputForm
           description="LastName"
           type="text"
-          name="lastname"
-          id="lastname"
+          name="lastName"
+          id="lastName"
           required={true}
           errorDescription="Please enter valid lastname (no number)"
         />
@@ -323,21 +340,21 @@ function Create() {
           />
           <div className="form-select">
             <p>State</p>
-            <Select options={states} />
+            <Select options={states} onChange={(e) => {setSelectState(e.value)}} />
           </div>
 
           <InputForm
             description="Zip Code"
             type="number"
-            name="zipcode"
-            id="zipcode"
+            name="zipCode"
+            id="zipCode"
             required={true}
             errorDescription="Please enter valid Zip Code"
           />
         </fieldset>
         <div className="form-select">
           <p>Department</p>
-          <Select options={departments} />
+          <Select options={departments} onChange={(e) => {setSelectDepartment(e.value)}} />
         </div>
 
         <button type="submit" className="save-button">

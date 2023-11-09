@@ -1,9 +1,12 @@
 import { useState } from "react";
 import DataTable from "react-data-table-component";
 import '../../styles/List.css'
+import { useSelector } from "react-redux";
+import { getListEmployeeList } from "../../features/list";
 
 function List() {
   const [input, setInput] = useState("");
+  const employeeList = useSelector(getListEmployeeList)
 
   const columns = [
     {
@@ -28,7 +31,7 @@ function List() {
     },
     {
       name: "Date of Birth",
-      selector: (row) => row.dateOfBirth,
+      selector: (row) => row.birthDate,
       sortable: true,
     },
     {
@@ -53,35 +56,13 @@ function List() {
     },
   ];
 
-  const data = [
-    {
-      id: 1,
-      firstName: "ouinon",
-      lastName: "ouioui",
-      startDate: "10/80/7520",
-      department: "ouais",
-      dateOfBirth: "11/05/2015",
-      street: "115 Test of test",
-      city: "Test",
-      state: "Minesota",
-      zipCode: 45,
-    },
-    {
-      id: 2,
-      firstName: "nonoui",
-      lastName: "ouioui",
-      startDate: "12/48/4521",
-      department: "ddddd",
-      dateOfBirth: "10/42/1041",
-      street: "dfgdfgdfgdg",
-      city: "Test",
-      state: "dgdgdvvvvvvvvvvv",
-      zipCode: 75,
-    },
-  ];
+  const data = employeeList
+
+  console.log(data)
 
   return (
     <div className="list">
+      <h1>Current Employees</h1>
       <div className="table-search">
         <p>Search :</p>
         <input

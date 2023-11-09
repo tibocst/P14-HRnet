@@ -4,8 +4,6 @@ import '../../styles/NavBar.css'
 function NavBar() {
   let location = useLocation();
 
-  console.log(location)
-
   return (
     <nav className="navBar">
       <h1>HRnet</h1>
