@@ -6,14 +6,15 @@ import { useState } from "react";
 import '../../styles/Create.css'
 import { useDispatch } from "react-redux";
 import { createEmployee } from "../../features/list";
-import { Modale } from "project-14-hrnet-modale/dist";
+import { Modale } from "project-14-hrnet-modale/dist/Modale.js";
+import close from "../../assets/window-close-solid.svg";
 
 function Create() {
   const [startDate, setStartDate] = useState(null);
   const [birthDate, setBirthDate] = useState(null);
   const [selectState, setSelectState] = useState(null);
   const [selectDepartment, setSelectDepartment] = useState(null);
-  // const listEmployeeList = useSelector(getListEmployeeList)
+  const [displayModale, setDisplayModale] = useState(false);
   const dispatch = useDispatch()
 
   const handleSubmitCreate = (e) => {
@@ -26,7 +27,7 @@ function Create() {
     formJson.birthDate = birthDate.toLocaleDateString("en-US", options)
     formJson.state = selectState
     formJson.department = selectDepartment
-    // formJson.id = listEmployeeList.length
+    setDisplayModale(true)
     dispatch(createEmployee(formJson))
   };
 
@@ -295,7 +296,7 @@ function Create() {
   return (
     <div className="create">
       <h1>Create Employee</h1>
-      <Modale />
+      {displayModale ? <Modale src={close} onClick={()=> setDisplayModale(false)}/> : null}
       <form onSubmit={handleSubmitCreate}>
         <InputForm
           description="FirstName"

@@ -49,3 +49,7 @@ p {
     align-self: center;
     width: 100px;
 }
+
+.modale {
+    z-index: 2;
+}
