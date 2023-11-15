@@ -1,12 +1,12 @@
 import { useState } from "react";
 import DataTable from "react-data-table-component";
-import '../../styles/List.css'
+import "../../styles/List.css";
 import { useSelector } from "react-redux";
 import { getListEmployeeList } from "../../features/list";
 
 function List() {
   const [input, setInput] = useState("");
-  const employeeList = useSelector(getListEmployeeList)
+  const employeeList = useSelector(getListEmployeeList);
 
   const columns = [
     {
@@ -56,9 +56,7 @@ function List() {
     },
   ];
 
-  const data = employeeList
-
-  console.log(data)
+  const data = employeeList;
 
   return (
     <div className="list">
@@ -80,9 +78,7 @@ function List() {
         data={data.filter((item) => {
           if (input === "") {
             return item;
-          } else if (
-            item.firstName.toLowerCase().includes(input.toLowerCase())
-          ) {
+          } else if (Object.values(item).some(elem => elem.includes(input))) {
             return item;
           }
           return null;

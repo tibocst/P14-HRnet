@@ -4,15 +4,16 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import '../../styles/Create.css'
-import { useDispatch, useSelector } from "react-redux";
-import { createEmployee, getListEmployeeList } from "../../features/list";
+import { useDispatch } from "react-redux";
+import { createEmployee } from "../../features/list";
+import { Modale } from "project-14-hrnet-modale/dist";
 
 function Create() {
   const [startDate, setStartDate] = useState(null);
   const [birthDate, setBirthDate] = useState(null);
   const [selectState, setSelectState] = useState(null);
   const [selectDepartment, setSelectDepartment] = useState(null);
-  const listEmployeeList = useSelector(getListEmployeeList)
+  // const listEmployeeList = useSelector(getListEmployeeList)
   const dispatch = useDispatch()
 
   const handleSubmitCreate = (e) => {
@@ -25,7 +26,7 @@ function Create() {
     formJson.birthDate = birthDate.toLocaleDateString("en-US", options)
     formJson.state = selectState
     formJson.department = selectDepartment
-    formJson.id = listEmployeeList.length
+    // formJson.id = listEmployeeList.length
     dispatch(createEmployee(formJson))
   };
 
@@ -294,6 +295,7 @@ function Create() {
   return (
     <div className="create">
       <h1>Create Employee</h1>
+      <Modale />
       <form onSubmit={handleSubmitCreate}>
         <InputForm
           description="FirstName"
