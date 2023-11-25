@@ -6,7 +6,7 @@ import { useState } from "react";
 import '../../styles/Create.css'
 import { useDispatch } from "react-redux";
 import { createEmployee } from "../../features/list";
-import { Modale } from "project-14-hrnet-modale/dist/Modale.js";
+import { Modale } from "project-14-hrnet-modale";
 
 function Create() {
   const [startDate, setStartDate] = useState(null);
